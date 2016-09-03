@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pro">
+ <select id="getBooks" resultType="book.book.bookDto">
+  select * from book order by title
+ </select>
+ 
+ <select id="getBook" parameterType="string" resultType="book.book.bookDto">
+  select * from book where no=#{no}
+ </select>
+
+ <select id="getTopBook" resultType="book.book.bookDto">
+  select * from book limit 5
+ </select>
+  
+ <insert id="insertBook" parameterType="book.book.bookDto">
+  insert into book(title, priceStandard, priceEbook, description, pubDate, coverSmallUrl, coverLargeUrl, publisher, author, translator) values(#{title}, #{priceStandard}, #{priceEbook}, #{description}, #{pubDate}, #{coverSmallUrl}, #{coverLargeUrl}, #{publisher}, #{author}, #{translator})
+ </insert>
+ 
+ <update id="updatebook" parameterType="book.book.bookDto">
+  update book set title=#{title}, priceStandard=#{priceStandard}, priceEbook=#{priceEbook}, description=#{description}, pubDate=#{pubDate}, coverSmallUrl = #{coverSmallUrl}, coverLargeUrl = #{coverLargeUrl}, publisher=#{publisher}, author=#{author}, translator=#{translator} where no=#{no}
+ </update>
+ 
+ <delete id="deletebook" parameterType="String">
+  delete from book where no=#{no}
+ </delete>
+ 
+ <select id="getWish" parameterType="string" resultType="book.book.WishlistDto">
+  select * from wishlist where mem_id=#{mem_id}
+ </select>
+ 
+ <delete id="deleteWish" parameterType="int">
+  delete from wishlist where book_no=#{book_no}
+ </delete>
+ 
+ <select id="getMembers" resultType="ArrayList">
+  select * from member
+ </select>
+ 
+ <select id="getMember" parameterType="string" resultType="book.member.MemberBean">
+  select * from member where no=#{no}
+ </select>
+ 
+ <insert id="insertMember" parameterType="book.member.MemberBean">
+  insert into member(id, pwd, name, email, gaibil) values(#{id}, #{pwd}, #{name}, #{email}, date_format(now(), "%Y-%m-%d"))
+ </insert>
+ 
+ <update id="updateMember" parameterType="book.member.MemberBean">
+  update member set pwd=#{pwd}, name=#{name}, email=#{email} where no=#{no}
+ </update>
+ 
+ <update id="updatePoint" parameterType="book.member.MemberBean">
+  update member set point=#{point} where no=#{no}
+ </update>
+ 
+ <delete id="deleteMember" parameterType="String">
+  delete from member where no=#{no}
+ </delete>
+</mapper>
