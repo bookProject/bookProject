@@ -83,7 +83,7 @@
 /* star start */
 .star_rating {
 	/* position: absolute; */
-	/* text-align: center; */
+	text-align: center;
 	font-size: 0;
 	letter-spacing: -4px;
 	/* bottom: 5px; */
@@ -107,8 +107,11 @@
 /* star end */
 
 /* heart(wish-list) start */
+.wish-text1{
+	font-size: 11px;
+}
 .favorite {
-	font-size: 12px;
+	/* font-size: 12px; */
 	letter-spacing: 0;
 	display: inline-block;
 	margin-left: 5px;
@@ -146,9 +149,65 @@
 	border-color: #a1887f;
 	font-size: 14px;
 }
+.wish-text2{
+	font-size: 20px;
+}
 .table-center{
 	text-align: center;
-	background-color: rgba(161, 136, 127, 0.5); /* #a1887f 색상에 투명도 적용 */
+	background-color: rgba(161, 136, 127, 0.8); /* #a1887f 색상에 투명도 적용 */
+}
+.cart{
+	padding: 0px;
+	margin: 0px;
+}
+.icon-title{
+	font-weight: bold;
+}
+.waves-effect.waves-light.btn.price{
+	text-align:left;
+	width: 100%;
+	height: 100%;
+	padding: 0px;
+ 	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-left: 20px;
+	padding-right: 30px;
+	background-color: white;
+	color: black;
 }
 
+.waves-effect.waves-light.btn-large.binfo{
+ 	width: 100%;
+	height: 100%;
+	padding: 0px;
+	background-color: rgba(161, 136, 127, 0);
+}
+.waves-effect.waves-light.btn-large.binfo:hover{
+ 	background-color: #a1887f;
+}
+.waves-effect.waves-light.btn-large.binfo:hover .material-icons.cart{
+ 	color: black;
+}
+.material-icons.cart{
+	text-align: center;
+	margin-top: 35px;
+	margin-bottom: 35px;
+	margin-left: 20px;
+	margin-right: 20px;
+}
 /* book info end */
+
+/* cart process start */
+.waves-effect.waves-light.btn.price.buy #buy{
+	color: white;
+}
+.waves-effect.waves-light.btn.price.rent #rent{
+	color: white;
+}
+.waves-effect.waves-light.btn.price.buy.on #buy {
+	color: #82685F;
+}
+.waves-effect.waves-light.btn.price.rent.on #rent {
+	color: #82685F;
+}
+/* cart process end */

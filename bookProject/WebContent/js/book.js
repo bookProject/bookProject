@@ -21,9 +21,9 @@ $(document).ready(function() {
 			   success: function(data) {
 				  if(data.result){
 					  $(this).addClass("on");
-					  Materialize.toast('추가되었습니다.', 800);
+					  Materialize.toast('추가되었습니다.', 1000);
 				  }else{
-					  Materialize.toast('위시리스트 추가 실패', 800);
+					  Materialize.toast('위시리스트 추가 실패', 1000);
 				  }
 			   }
 			});
@@ -37,12 +37,38 @@ $(document).ready(function() {
 			   success: function(data) {
 				   if(data.result){
 					  $(this).removeClass("on");					   
-					  Materialize.toast('취소되었습니다.', 800);
+					  Materialize.toast('취소되었습니다.', 1000);
 				   }else{
-					   Materialize.toast('위시리스트 취소 실패', 800);
+					   Materialize.toast('위시리스트 취소 실패', 1000);
 				   }
 			   }
 			});
+		}
+	});
+	
+	$(".waves-effect.waves-light.btn.price.rent").click(function() {
+		if(!$(this).hasClass("on")){
+			$(this).addClass("on");
+			$(".waves-effect.waves-light.btn.price.buy").removeClass("on");					   
+		}else{
+			Materialize.toast('이미 선택했습니다.', 1000);
+		}
+	});
+	
+	$(".waves-effect.waves-light.btn.price.buy").click(function() {
+		if(!$(this).hasClass("on")){
+			$(this).addClass("on");
+			$(".waves-effect.waves-light.btn.price.rent").removeClass("on");					   
+		}else{
+			Materialize.toast('이미 선택했습니다.', 1000);
+		}
+	});
+	
+	$(".waves-effect.waves-light.btn-large.binfo").click(function(){
+		if($(".waves-effect.waves-light.btn.price.buy").hasClass("on")){
+			alert($(".waves-effect.waves-light.btn.price.buy").attr('id'));
+		}else if($(".waves-effect.waves-light.btn.price.rent").hasClass("on")){
+			alert($(".waves-effect.waves-light.btn.price.rent").attr('id'));
 		}
 	});
 	

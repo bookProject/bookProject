@@ -1,7 +1,7 @@
 package book.book;
 
 public class bookDto {
-	private String no, title, description, pubDate, coverLargeUrl, publisher, author, translator;
+	private String no, title, description, pubDate, coverLargeUrl, publisher, author, translator, c_desc;
 	private int categoryId, priceStandard, priceEbook;
 	
 	public String getNo() {
@@ -15,6 +15,12 @@ public class bookDto {
 	}
 	public void setCategoryId(int categoryId) {
 		this.categoryId = categoryId;
+	}
+	public String getC_desc() {
+		return c_desc;
+	}
+	public void setC_desc(String c_desc) {
+		this.c_desc = c_desc;
 	}
 	public String getTitle() {
 		return title;

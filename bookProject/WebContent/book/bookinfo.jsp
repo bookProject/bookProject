@@ -11,13 +11,13 @@
 request.setCharacterEncoding("utf-8");
 String mem_id = "admin";  //세션으로 처리 예정
 int book_no = Integer.parseInt(request.getParameter("no"));
-System.out.println(book_no);
 bookDto bookinfo = bookDao.getBookByNo(book_no);
 %>    
 <jsp:useBean id="wishDto" class="book.wishlist.WishlistDto"/>
 <jsp:setProperty property="mem_id" name="wishDto" value="<%=mem_id %>"/>
 <jsp:setProperty property="book_no" name="wishDto" value="<%=book_no %>"/>
 <jsp:useBean id="wishDao" class="book.wishlist.WishlistProcessDao" />
+<% WishlistDto wish_dto = wishDao.getWishByNo(wishDto); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,9 +45,23 @@ bookDto bookinfo = bookDao.getBookByNo(book_no);
     <!-- cover image end -->
     <!-- info start -->
     <div class="col s5">
-      <div class="info-ctgr">국내도서><a href="#">${book.categoryId }</a></div><br/>
-      <div class="info-title">${book.title }</div><br/> 
-      <div class="info-pub"><b>도서정보</b> &nbsp; ${book.publisher } | ${book.pubDate }</div>
+      <p/>
+      <div class="info-ctgr">국내도서><a href="${book.categoryId }">${book.c_desc }</a></div><br/>
+      <div class="info-title">${book.title }
+        <span class="wish-text2">
+          <c:set var="wDto" value="<%=wish_dto %>"/>
+          <c:choose>
+            <c:when test="${wDto == null}">
+              <span class="favorite" id="${book.no}">♥</span>			
+            </c:when>
+            <c:otherwise>
+              <span class="favorite on" id="${book.no}">♥</span>
+            </c:otherwise>
+          </c:choose>
+        </span>
+      </div>
+      <br/> 
+      <div class="info-pub"><b>도서정보</b> &nbsp; ${book.publisher } 출판 |  ${book.pubDate } 출간 </div>
       <br/>  
       <table class="bordered">
         <thead>
@@ -55,32 +69,36 @@ bookDto bookinfo = bookDao.getBookByNo(book_no);
         </thead>
         <tbody>
           <tr>
-            <td rowspan="2" class="table-center">구매</td>
-            <td> &nbsp; 소장 &nbsp; &nbsp; <b><fmt:formatNumber value="${book.priceStandard }" type="currency" /></b></td>
+            <td rowspan="2" class="table-center"> 구 매 </td>
+            <td class="cart">
+                 <a class="waves-effect waves-light btn price buy on" id="${book.priceStandard }">
+                 	<i class="material-icons right price" id="buy">done</i>
+                   	 소장 &nbsp; &nbsp; <b><fmt:formatNumber value="${book.priceStandard }" type="currency" /></b>
+                 </a>
+            </td>
+            <td rowspan="2" class="table-center cart">
+              <a class="waves-effect waves-light btn-large binfo"><i class="material-icons cart">shopping_cart</i></a>
+            </td>
           </tr>
           <tr>
-            <td> &nbsp; 대여 &nbsp; &nbsp; <b><fmt:formatNumber value="${book.priceEbook }" type="currency" /></b> (대여기간 : 3일)</td>
+            <td class="cart"> 
+                 <a class="waves-effect waves-light btn price rent" id="${book.priceEbook }">
+                 	<i class="material-icons right price" id="rent">done</i>
+                   	대여 &nbsp; &nbsp; <b><fmt:formatNumber value="${book.priceEbook }" type="currency" /></b> (대여기간 : 3일)
+                 </a>
+            </td>
           </tr>
         </tbody>
       </table>
       <br/>
-      <% WishlistDto wish_dto = wishDao.getWishByNo(wishDto); %>
-      <% if(wish_dto != null) System.out.println("t");
-      else{
-    	  System.out.println("f");
-      }
-      %>
-      <c:choose>
-        <c:when test="${wish_dto != null}">
-        	TT
-          <span class="favorite on" id="${list2.no}">♥</span>
-        </c:when>
-        <c:otherwise>
-        FF
-          <span class="favorite" id="${list2.no}">♥</span>			
-        </c:otherwise>
-      </c:choose> 
-      <i class="material-icons">shopping_cart</i>
+            <div class="star_rating">
+			  <a href="#">★</a>
+			  <a href="#">★</a>
+			  <a href="#">★</a>
+			  <a href="#">★</a>
+			  <a href="#">★</a>
+			  <b> &nbsp; 0.0점 (??명 참여)</b>
+		    </div>
     </div>
     <!-- info end -->
     <div class="col s2"><p/></div>
@@ -93,22 +111,20 @@ bookDto bookinfo = bookDao.getBookByNo(book_no);
     <div class="col s8">
 	    <ul class="collapsible" data-collapsible="expandable">
 		    <li>
-		      <div class="collapsible-header"><i class="material-icons">filter_drama</i>줄거리</div>
+		      <div class="collapsible-header"><div class="icon-title"><i class="material-icons">description</i>| &nbsp; &nbsp; 줄거리</div></div>
 		      <div class="collapsible-body"><p>${book.description }</p></div>
 		    </li>
 		    <li>
-		      <div class="collapsible-header"><i class="material-icons">place</i>저자 및 번역</div>
-		      <div class="collapsible-body">
-		        <p>저자 &nbsp; ${book.author }<br/>번역 &nbsp; ${book.translator }</p>
-		      </div>
+		      <div class="collapsible-header"><div class="icon-title"><i class="material-icons">recent_actors</i>| &nbsp; &nbsp; 저자 및 번역</div></div>
+		      <div class="collapsible-body"><p>저자 &nbsp; ${book.author }<br/>번역 &nbsp; ${book.translator }</p></div>
 		    </li>
 		    <li>
-		      <div class="collapsible-header"><i class="material-icons">whatshot</i>저자소개</div>
+		      <div class="collapsible-header"><div class="icon-title"><i class="material-icons">perm_identity</i>| &nbsp; &nbsp; 저자소개</div></div>
 		      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
 		    </li>
 		    <li>
-		      <div class="collapsible-header"><i class="material-icons">place</i>후기글</div>
-		      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+		      <div class="collapsible-header"><div class="icon-title"><i class="material-icons">mode_edit</i>| &nbsp; &nbsp; 후기글</div></div>
+		      <div class="collapsible-body"><p>존잼 : - ]</p></div>
 		    </li>
 	    </ul>
     </div>

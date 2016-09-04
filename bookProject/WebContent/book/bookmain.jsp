@@ -73,10 +73,10 @@
 					</c:forEach>
 					<c:choose>
 						<c:when test="${check}">
-   							<span class="favorite on" id="${list2.no}">♥ wish list</span>
+   							<span class="wish-text1"><span class="favorite on" id="${list2.no}">♥ wish list</span></span>
 						</c:when>
 						<c:otherwise>
-							<span class="favorite" id="${list2.no}">♥ wish list</span>			
+							<span class="wish-text1"><span class="favorite" id="${list2.no}">♥ wish list</span></span>			
 						</c:otherwise>
 					</c:choose> 
 	    		</div>

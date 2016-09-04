@@ -16,7 +16,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  </select>
   
  <select id="getBookByNo" parameterType="int" resultType="book.book.bookDto">
-  select * from book where no = #{no}
+  select book.*, c_desc from book join category on categoryId = c_id where no = #{no}
  </select>
  
  <insert id="insertBook" parameterType="book.book.bookDto">
