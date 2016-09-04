@@ -65,11 +65,15 @@ $(document).ready(function() {
 	});
 	
 	$(".waves-effect.waves-light.btn-large.binfo").click(function(){
-		if($(".waves-effect.waves-light.btn.price.buy").hasClass("on")){
+		if($(".waves-effect.waves-light.btn.price.buy").hasClass("on")){		
 			alert($(".waves-effect.waves-light.btn.price.buy").attr('id'));
 		}else if($(".waves-effect.waves-light.btn.price.rent").hasClass("on")){
 			alert($(".waves-effect.waves-light.btn.price.rent").attr('id'));
 		}
+	});
+	
+	$(".orderok").click(function(){
+		Materialize.toast('구매완료 했습니다.', 1200);
 	});
 	
     $('.collapsible').collapsible({

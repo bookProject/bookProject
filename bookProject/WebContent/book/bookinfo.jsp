@@ -29,6 +29,14 @@ bookDto bookinfo = bookDao.getBookByNo(book_no);
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
 <script type="text/javascript" src="../js/book.js"></script>
+<script type="text/javascript">
+/*<!-- Modal Trigger -->*/
+$(document).ready(function() {
+$('.modal-trigger').leanModal();
+$('#modal1').openModal();
+$('#modal1').closeModal();
+});
+</script>
 </head>
 <body>
   <div class="row">
@@ -69,20 +77,20 @@ bookDto bookinfo = bookDao.getBookByNo(book_no);
         </thead>
         <tbody>
           <tr>
-            <td rowspan="2" class="table-center"> 구 매 </td>
+            <td rowspan="2" class="table-center"><b class="tshadow"> &nbsp; 구 매 &nbsp; </b></td>
             <td class="cart">
-                 <a class="waves-effect waves-light btn price buy on" id="${book.priceStandard }">
+                 <a class="waves-effect waves-light btn price buy on" id="${book.priceStandard }" name="1">
                  	<i class="material-icons right price" id="buy">done</i>
                    	 소장 &nbsp; &nbsp; <b><fmt:formatNumber value="${book.priceStandard }" type="currency" /></b>
                  </a>
             </td>
             <td rowspan="2" class="table-center cart">
-              <a class="waves-effect waves-light btn-large binfo"><i class="material-icons cart">shopping_cart</i></a>
+              <a class="waves-effect waves-light btn-large binfo modal-trigger" href="#modal1"><i class="material-icons cart tshadow">shopping_cart</i></a>
             </td>
           </tr>
           <tr>
             <td class="cart"> 
-                 <a class="waves-effect waves-light btn price rent" id="${book.priceEbook }">
+                 <a class="waves-effect waves-light btn price rent" id="${book.priceEbook }"  name="2">
                  	<i class="material-icons right price" id="rent">done</i>
                    	대여 &nbsp; &nbsp; <b><fmt:formatNumber value="${book.priceEbook }" type="currency" /></b> (대여기간 : 3일)
                  </a>
@@ -111,19 +119,19 @@ bookDto bookinfo = bookDao.getBookByNo(book_no);
     <div class="col s8">
 	    <ul class="collapsible" data-collapsible="expandable">
 		    <li>
-		      <div class="collapsible-header"><div class="icon-title"><i class="material-icons">description</i>| &nbsp; &nbsp; 줄거리</div></div>
+		      <div class="collapsible-header"><div class="icon-title tshadow"><i class="material-icons">description</i>| &nbsp; &nbsp; 줄거리</div></div>
 		      <div class="collapsible-body"><p>${book.description }</p></div>
 		    </li>
 		    <li>
-		      <div class="collapsible-header"><div class="icon-title"><i class="material-icons">recent_actors</i>| &nbsp; &nbsp; 저자 및 번역</div></div>
+		      <div class="collapsible-header"><div class="icon-title tshadow"><i class="material-icons">recent_actors</i>| &nbsp; &nbsp; 저자 및 번역</div></div>
 		      <div class="collapsible-body"><p>저자 &nbsp; ${book.author }<br/>번역 &nbsp; ${book.translator }</p></div>
 		    </li>
 		    <li>
-		      <div class="collapsible-header"><div class="icon-title"><i class="material-icons">perm_identity</i>| &nbsp; &nbsp; 저자소개</div></div>
+		      <div class="collapsible-header"><div class="icon-title tshadow"><i class="material-icons">perm_identity</i>| &nbsp; &nbsp; 저자소개</div></div>
 		      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
 		    </li>
 		    <li>
-		      <div class="collapsible-header"><div class="icon-title"><i class="material-icons">mode_edit</i>| &nbsp; &nbsp; 후기글</div></div>
+		      <div class="collapsible-header"><div class="icon-title tshadow"><i class="material-icons">mode_edit</i>| &nbsp; &nbsp; 후기글</div></div>
 		      <div class="collapsible-body"><p>존잼 : - ]</p></div>
 		    </li>
 	    </ul>
@@ -131,5 +139,18 @@ bookDto bookinfo = bookDao.getBookByNo(book_no);
     <div class="col s2"><p/></div>
   </div>		    
 <!-- book more end -->
+
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+  <div class="modal-content">
+     <h4>구매 내역을 확인해주세요.</h4>
+     <p>${book.title }을(를) 구매하시겠습니까?</p>
+  </div>
+  <div class="modal-footer">
+     <a class=" modal-action modal-close waves-effect waves-green btn-flat">취소</a>    
+     <a class=" modal-action modal-close waves-effect waves-green btn-flat orderok">구매하기</a>
+  </div>
+</div>
 </body>
 </html>
