@@ -15,24 +15,36 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   select * from book limit 5
  </select>
   
+ <select id="getBookByNo" parameterType="int" resultType="book.book.bookDto">
+  select * from book where no = #{no}
+ </select>
+ 
  <insert id="insertBook" parameterType="book.book.bookDto">
-  insert into book(title, priceStandard, priceEbook, description, pubDate, coverSmallUrl, coverLargeUrl, publisher, author, translator) values(#{title}, #{priceStandard}, #{priceEbook}, #{description}, #{pubDate}, #{coverSmallUrl}, #{coverLargeUrl}, #{publisher}, #{author}, #{translator})
+  insert into book(title, categoryId, priceStandard, priceEbook, description, pubDate, coverLargeUrl, publisher, author, translator) values(#{title}, #{categoryId}, #{priceStandard}, #{priceEbook}, #{description}, #{pubDate}, #{coverLargeUrl}, #{publisher}, #{author}, #{translator})
  </insert>
  
  <update id="updatebook" parameterType="book.book.bookDto">
-  update book set title=#{title}, priceStandard=#{priceStandard}, priceEbook=#{priceEbook}, description=#{description}, pubDate=#{pubDate}, coverSmallUrl = #{coverSmallUrl}, coverLargeUrl = #{coverLargeUrl}, publisher=#{publisher}, author=#{author}, translator=#{translator} where no=#{no}
+  update book set title=#{title}, categoryId = #{categoryId}, priceStandard=#{priceStandard}, priceEbook=#{priceEbook}, description=#{description}, pubDate=#{pubDate}, coverLargeUrl = #{coverLargeUrl}, publisher=#{publisher}, author=#{author}, translator=#{translator} where no=#{no}
  </update>
  
  <delete id="deletebook" parameterType="String">
   delete from book where no=#{no}
  </delete>
  
- <select id="getWish" parameterType="string" resultType="book.book.WishlistDto">
+ <select id="getWish" parameterType="string" resultType="book.wishlist.WishlistDto">
   select * from wishlist where mem_id=#{mem_id}
  </select>
+
+ <select id="getWishByNo" parameterType="book.wishlist.WishlistDto" resultType="book.wishlist.WishlistDto">
+  select * from wishlist where mem_id=#{mem_id} and book_no=#{book_no}
+ </select>
+
+ <insert id="insertWish" parameterType="book.wishlist.WishlistDto">
+  insert into wishlist values (#{mem_id}, #{book_no})
+ </insert>
  
- <delete id="deleteWish" parameterType="int">
-  delete from wishlist where book_no=#{book_no}
+ <delete id="deleteWish" parameterType="book.wishlist.WishlistDto">
+  delete from wishlist where mem_id=#{mem_id} and book_no=#{book_no}
  </delete>
  
  <select id="getMembers" resultType="ArrayList">

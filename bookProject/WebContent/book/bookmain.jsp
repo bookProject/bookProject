@@ -9,37 +9,41 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%
   request.setCharacterEncoding("utf-8");
-  String id = "admin";
+  String mem_id = "admin";  //세션으로 처리 예정
+
+  ArrayList<bookDto> listTop = (ArrayList)bookDao.getTopBook();
+  ArrayList<bookDto> listMain = (ArrayList)bookDao.getBooks();
+  ArrayList<WishlistDto> my_wishlist = (ArrayList)wishDao.getWishlist(mem_id);
 %>
-<%ArrayList<bookDto> listTop = (ArrayList)bookDao.getTopBook();%>
-<%ArrayList<bookDto> listMain = (ArrayList)bookDao.getBooks();%>
-<%ArrayList<WishlistDto> my_wishlist = (ArrayList)wishDao.getWishlist();%>
-       
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="http://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
 <link rel="stylesheet" type="text/css" href="../css/book.css">
-<title>Main Page(Book list)</title>
+<title>도서 메인 페이지</title>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
 <script type="text/javascript" src="../js/book.js"></script>
 </head>
 <body>
 <!-- top5 slide list start -->
-  <div class="carousel">
+<div class="carousel">
 	<c:forEach var="list1" items="<%=listTop %>">
-    	<a class="carousel-item" href="${list1.no }"><img src="${list1.coverLargeUrl }"></a>
+    	<a class="carousel-item" href="bookinfo.jsp?no=${list1.no }"><img src="${list1.coverLargeUrl }"></a>
   	</c:forEach>
-  </div>
+</div>
 <!-- top5 slide list end -->
 &nbsp;<p/>&nbsp;<p/>
+<p class="main-text">오늘, 리디의 발견</p>
+&nbsp;<p/>
 <!-- main book list start -->
-  <div class="row">
+<div class="row">
   	<c:set var="cnt" value="0" />
   	<c:forEach var="list2" items="<%=listMain %>">
-      	<div class="col s3">
+      	<div class="col s3 grid-main">
       		<div class="book-info">
     			<a href="bookinfo.jsp?no=${list2.no }">
     				<img src="${list2.coverLargeUrl }">
@@ -60,17 +64,21 @@
 					    <a href="#">★</a>
 					    <a href="#">★</a>
 					</p> 
-					<c:forEach var="wish-list" items="my_wishlist">
-					
-						<c:choose>
-							<c:when test="${list2.no == ${wish-list.book_no}}">
-	   							<span class="favorite on">♥ wish list</span>
-							</c:when>
-							<c:otherwise>
-								<span class="favorite">♥ wish list</span>							
-							</c:otherwise>
-						</c:choose>
+					<c:set var="check" value="false" />
+					<c:forEach var="wlist" items="<%=my_wishlist %>">
+						<c:if test="${list2.no == wlist.book_no}">
+							<c:set var="check" value="true" />  <!-- wishlist에 존재하면 check=true -->
+							<%-- <% break; %> --%>	
+						</c:if>
 					</c:forEach>
+					<c:choose>
+						<c:when test="${check}">
+   							<span class="favorite on" id="${list2.no}">♥ wish list</span>
+						</c:when>
+						<c:otherwise>
+							<span class="favorite" id="${list2.no}">♥ wish list</span>			
+						</c:otherwise>
+					</c:choose> 
 	    		</div>
 	    	</div>
       	</div>
@@ -80,7 +88,7 @@
     		<p/>&nbsp;
     	</c:if>
 	</c:forEach>
-  </div>
+</div>
 <!-- main book list end -->  
 </body>
 </html>

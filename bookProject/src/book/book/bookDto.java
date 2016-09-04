@@ -1,14 +1,20 @@
 package book.book;
 
 public class bookDto {
-	private String no, title, description, pubDate, coverSmallUrl, coverLargeUrl, publisher, author, translator;
-	private int priceStandard, priceEbook;
+	private String no, title, description, pubDate, coverLargeUrl, publisher, author, translator;
+	private int categoryId, priceStandard, priceEbook;
 	
 	public String getNo() {
 		return no;
 	}
 	public void setNo(String no) {
 		this.no = no;
+	}
+	public int getCategoryId() {
+		return categoryId;
+	}
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
 	}
 	public String getTitle() {
 		return title;
@@ -27,12 +33,6 @@ public class bookDto {
 	}
 	public void setPubDate(String pubDate) {
 		this.pubDate = pubDate;
-	}
-	public String getCoverSmallUrl() {
-		return coverSmallUrl;
-	}
-	public void setCoverSmallUrl(String coverSmallUrl) {
-		this.coverSmallUrl = coverSmallUrl;
 	}
 	public String getCoverLargeUrl() {
 		return coverLargeUrl;

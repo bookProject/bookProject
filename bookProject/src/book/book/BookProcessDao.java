@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import book.mybatis.SqlMapConfig;
+import book.wishlist.WishlistDto;
 
 public class BookProcessDao {
 	private static BookProcessDao dao = new BookProcessDao();
@@ -30,4 +31,11 @@ public class BookProcessDao {
 		sqlSession.close();
 		return list;
 	}	
+	
+	public bookDto getBookByNo(int no) throws SQLException{
+		SqlSession sqlSession = factory.openSession();
+		bookDto dto = sqlSession.selectOne("getBookByNo", no);
+		sqlSession.close();
+		return dto;
+	}
 }

@@ -1,6 +1,6 @@
 @CHARSET "UTF-8";
-
-/************ book top5 start ************/
+/* ==================bookmain.jsp================== */
+/* book top5 start */
 .carousel {
 	overflow: hidden;
 	position: relative;
@@ -17,14 +17,22 @@
 	width: 230px;
 	height: 320px;
 }
-/************ book top5 end ************/
+/* book top5 end */
 
-/************ book list start ************/
-.col.s3 {
+/* main text start */
+.main-text{
+	/* font-weight: 400; */
+	font-family: fantasy;
+	text-align: center;
+}
+/* main text end */
+
+/* book list start */
+.col.s3.grid-main {
 	text-align: center;
 	position: relative;
 }
-.col.s3 img {
+.col.s3.grid-main img {
 	width: 160px;
 	height: 230px;
 	border: 1px solid #a1887f;
@@ -56,9 +64,10 @@
 	position: absolute;
 	left: 0;
 	width: 100%;
-	height: 80px; display : none;
-	background-color: #E3E7E8;
-	display: none; background-color : white;
+	height: 80px; 
+	display : none;
+	background-color: white;/* #E3E7E8; */
+	display: none; 
 	bottom: 5px;
 	border: 1px solid #a1887f;
 }
@@ -69,9 +78,9 @@
 .title-line{
 	margin: 0px;
 }
-/************ book list end ************/
+/* book list end */
 
-/************ star start ************/
+/* star start */
 .star_rating {
 	/* position: absolute; */
 	/* text-align: center; */
@@ -79,6 +88,7 @@
 	letter-spacing: -4px;
 	/* bottom: 5px; */
 }
+
 .star_rating a {
 	font-size: 18px;
 	letter-spacing: 0;
@@ -94,9 +104,9 @@
 .star_rating a.on {
 	color: #FFEE00;
 }
-/************ star end ************/
+/* star end */
 
-/************ heart(wish-list) start ************/
+/* heart(wish-list) start */
 .favorite {
 	font-size: 12px;
 	letter-spacing: 0;
@@ -114,4 +124,31 @@
 .favorite.on {
 	color: red;
 }
-/************ heart(wish-list) end ************/
+/* heart(wish-list) end */
+
+/*================== bookinfo.jsp ==================*/
+/* book info start */
+.info-cover{
+	width: 230px;
+	height: 320px;
+	border: 1px solid #a1887f;
+}
+.info-ctgr{
+	font-size: 13px;
+}
+.info-title{
+	font-size: 25px;
+}
+.info-pub{
+	font-size: 13px;
+}
+.bordered{
+	border-color: #a1887f;
+	font-size: 14px;
+}
+.table-center{
+	text-align: center;
+	background-color: rgba(161, 136, 127, 0.5); /* #a1887f 색상에 투명도 적용 */
+}
+
+/* book info end */
