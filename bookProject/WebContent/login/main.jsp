@@ -11,15 +11,15 @@
 
 <meta content="website" property="og:type" />
 
-    <link href="css/main.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="../css/main.css" media="screen" rel="stylesheet" type="text/css" />
     <script src="https://d12hfz37g51hrt.cloudfront.net/assets/intro-9147722957a78a6e9fe51f0a2e6f3a07.js" type="text/javascript"></script>
     <meta content="authenticity_token" name="csrf-param" />
 <meta content="Mind/HZUE6eZN3KWpoCo3JY4pt1FOLLet7fUEmzqaeI=" name="csrf-token" />
  
-<script type="text/javascript" src="js/jquery-3.1.0.js"></script>
+<script type="text/javascript" src="../js/jquery-3.1.0.js"></script>
 <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-<script type="text/javascript" src="js/materialize.min.js"></script>
+<link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
+<script type="text/javascript" src="../js/materialize.min.js"></script>
 
    
 <script type="text/javascript">
@@ -56,7 +56,7 @@
           <img class="logo" src="https://d12hfz37g51hrt.cloudfront.net/assets/intro/intro_watcha_logo-702a3b4773fded9c9831132f6f875a60.png" alt="로고" /><br /><br />
           
           <!-- 가운데 로고 -->
-          <img src="image/text.png" alt="중앙 이미지"/><br /><br />
+          <img src="../image/text.png" alt="중앙 이미지"/><br /><br />
           <span class="service-msg">OO전자도서관에 오신걸 환영합니다.</span>
           <span class="service-msg">서비스를 이용하실려면 로그인이 필요합니다.</span><br />
           <div class="buttons-wrapper">
@@ -74,7 +74,7 @@
         <a href="#" class="legal-privacy-button">개인정보취급방침</a>
       </div>
     
-    </div>
+   
     <div class="legal-element  legal-privacy ">
   <div class="modal">
     <div class="legal-dialog">
@@ -260,7 +260,7 @@
   <div class="modal-backdrop"></div>
 </div>
     <script type="text/javascript">
-      $(".content").css("backgroundImage", 'url(image/background_image.png)');
+      $(".content").css("backgroundImage", 'url(../image/background_image.png)');
       $(".app-download-wrapper a").on("click", function (e) { ga('send', 'event', 'App', 'Download') });
 
       $(".legal-privacy-button").on("click", function(e) {
