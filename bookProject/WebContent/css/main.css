@@ -1,0 +1,33 @@
+@charset "UTF-8";
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt,
+var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;padding: 0;border: 0;font: inherit;font - size: 100 % ;vertical - align: baseline
+}
+html {
+    line - height: 1
+}
+ol, ul {
+    list - style: none
+}
+table {
+    border - collapse: collapse;
+    border - spacing: 0
+}
+caption, th, td {
+    text - align: left;
+    font - weight: normal;
+    vertical - align: middle
+}
+q, blockquote {
+    quotes: none
+}
+q: before, q: after, blockquote: before, blockquote: after {
+    content: "";content: none
+}
+a img {
+    border: none
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+    display: block
+}.service_logo - sprite {
+        background: url(https: //d12hfz37g51hrt.cloudfront.net/assets/service_logo-s7e9ca9cdda-d72e40b3c5c3a5f68de7b327f3285cc3.png) no-repeat}.icons-sprite{background:url(https://d12hfz37g51hrt.cloudfront.net/assets/icons-s88a0c27ba3-60fcdb2254b1efd18e6840d2ffdd85f6.png) no-repeat}html,body{background-color:#e5e5e5;letter-spacing:-1px;min-height:100%}html,input,textarea{font-family:'Apple SD Gothic Neo','나눔고딕',NanumGothic,'맑은 고딕','Malgun Gothic','돋움',dotum,'굴림',gulim,applegothic,sans-serif}a{text-decoration:none;color:black;cursor:pointer}.clear{clear:both}.clearfix:before,.clearfix:after{content:" ";display:table}.clearfix:after{clear:both}.clearfix{*zoom:1}*{-webkit-font-smoothing:antialiased}.modal-measure-scrollbar{position:absolute;height:100px;width:100px;top:-300px;left:-300px;overflow:scroll;overflow-y:scroll}.modal-measure-scrollbar .inner{height:200px}#canvasloader-container{text-align:center;margin:20px 0}#canvasloader-container #canvasLoader{margin:0 auto}.popup-involve-movies{cursor:pointer}@keyframes animatedBackground{from{background-position:0 0}to{background-position:0 100%}}@-webkit-keyframes animatedBackground{from{background-position:0 0}to{background-position:0 100%}}@-ms-keyframes animatedBackground{from{background-position:0 0}to{background-position:0 100%}}@-moz-keyframes animatedBackground{from{background-position:0 0}to{background-position:0 100%}}html,body{min-height:100%;height:100%}body.intro{height:100%;min-width:800px}body.intro #contents{height:100%}body.intro .bg{background-image:url(../image/main2.png);background-size:100%;background-position:0 100%;height:100%;animation:animatedBackground 40s linear;-ms-animation:animatedBackground 40s linear;-moz-animation:animatedBackground 40s linear;-webkit-animation:animatedBackground 40s linear}body.intro .bg-alpha{background-color:#b2b2b2;background-color:rgba(0,0,0,0.3);width:100%;height:100%;position:absolute;left:0;top:0}body.intro .bg-alpha.inner{z-index:1;margin-left:20px;width:760px;height:560px;margin-top:10px;-webkit-border-radius:8px;-moz-border-radius:8px;-ms-border-radius:8px;-o-border-radius:8px;border-radius:8px}body.intro .content{width:760px;height:560px;position:absolute;left:50%;top:50%;margin-left:-380px;margin-top:-280px;text-align:center;padding:20px}body.intro .content .content-wrapper{position:relative;z-index:10000}body.intro .content .content-wrapper .logo{margin-top:44px}body.intro .content .content-wrapper .service-msg{font-size:16px;line-height:24px;color:white;display:block}body.intro .content .content-wrapper .login{font-size:16px;line-height:24px;color:white}body.intro .content .content-wrapper .login a{color:red}body.intro .content .content-wrapper .buttons-wrapper .fb-join{border:#4969F0;background-color:#4969F0;width:220px;height:50px;margin-left:270px;cursor:pointer;-webkit-border-radius:10px;-moz-border-radius:10px;-ms-border-radius:10px;-o-border-radius:10px;border-radius:10px}body.intro .content .content-wrapper .buttons-wrapper .fb-join a{color:white;font-size:14px}body.intro .content .content-wrapper .buttons-wrapper .fb-join a .fb-join-image{position:absolute;margin-left:22px;margin-top:13px}body.intro .content .content-wrapper .buttons-wrapper .fb-join a .fb-join-text{position:absolute;margin-top:20px;margin-left:50px}body.intro .content .content-wrapper .buttons-wrapper .mail-join{border:1px solid white;width:220px;height:50px;margin-left:270px;cursor:pointer;-webkit-border-radius:10px;-moz-border-radius:10px;-ms-border-radius:10px;-o-border-radius:10px;border-radius:10px}body.intro .content .content-wrapper .buttons-wrapper .mail-join a{color:white;font-size:14px}body.intro .content .content-wrapper .buttons-wrapper .mail-join a .mail-join-image{position:absolute;margin-left:22px;margin-top:17px}body.intro .content .content-wrapper .buttons-wrapper .mail-join a .mail-join-text{position:absolute;margin-top:20px;margin-left:60px}body.intro .left-bottom{position:absolute;left:10px;bottom:10px;margin-left:20px}body.intro .left-bottom img{margin-left:15px}body.intro .left-bottom .rating-count{font-size:16px;color:white;margin-left:12px}body.intro .left-bottom .legal-privacy-button{margin-left:10px;color:white;font-weight:bold}body.intro .app-download-wrapper{position:absolute;right:10px;bottom:10px}body.intro .app-store{margin-left:10px;margin-right:5px}body.intro .legal-element{display:none}body.intro .legal-element .modal-backdrop{position:fixed;top:0;right:0;bottom:0;left:0;z-index:1040;background:rgba(18,18,24,0.7)}body.intro .legal-element .modal{position:fixed;top:0;right:0;bottom:0;left:0;z-index:1050;outline:0;overflow:auto;-webkit-overflow-scrolling:touch;overflow-y:scroll;z-index:10001}body.intro .legal-element .modal .legal-dialog{position:relative;margin:0 auto;margin-top:80px;margin-bottom:40px;padding:40px;width:560px;min-height:600px;background:#fff;color:#121218;text-align:left;box-sizing:border-box;-webkit-font-smoothing:antialiased}body.intro .legal-element .modal .legal-dialog .legal-dialog__close{position:absolute;top:35px;right:40px;color:rgba(18,18,24,0.3);font-size:22px;line-height:100%;background:transparent}body.intro .legal-element .modal .legal-dialog .legal-dialog__header{position:relative;left:-1px;font-size:30px;font-weight:300;line-height:100%;letter-spacing:-2px;border-bottom:1px solid #ececec;padding-bottom:24px}body.intro .legal-element .modal .legal-dialog .legal-dialog__content{padding-top:24px;font-size:14px;line-height:20px}
